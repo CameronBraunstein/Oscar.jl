@@ -143,7 +143,7 @@ function load_type_dispatch(s::DeserializerState, ::Type{T}, dict::Dict) where T
     return result
 end
 
-function load_type_dispatch(s::DeserializerState, dict::Dict; check_namespace=true)
+function load_type_dispatch(s::DeserializerState, dict::Dict; check_namespace=false)
     if check_namespace
         haskey(dict, :_ns) || throw(ArgumentError("Namespace is missing"))
         _ns = dict[:_ns]
